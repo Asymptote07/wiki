@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia - Search Results
+{% endblock %}
+
+{% block body %}
+    {% if length ==  0 %}
+    <h5> Your Search did not match any entries! </h5>
+    {% else %}
+    <h1> Did you mean : </h1>
+    <ul>
+    {% for i in recom %}
+    <li><a href="{% url 'entry' title=i %}"> {{i}} </a> </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
